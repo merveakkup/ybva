@@ -1,0 +1,21 @@
+---
+title: "Lojistik Regresyon"
+author: "Merve Akküp"
+date: '2022-05-16'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Giriş
+
+Bu derste lojistik regresyon incelendi.
+
+Öncelikle kütüphaneyi yükleyelim.
+
+```{r}
+library(ISLR2)
+```
+
