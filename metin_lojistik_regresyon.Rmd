@@ -12,9 +12,85 @@ knitr::opts_chunk$set(echo = TRUE)
 # Giriş
 
 Bu derste lojistik regresyon incelendi.
-
+Öncelikle kütüphaneyi yükleyelim.
 
 ```{r}
 library(ISLR2)
+```
+
+
+
+```{r}
+names(Smarket)
+```
+
+```{r}
+glm.fits <- glm(data = Smarket, Direction~Lag1 + Lag2 +Lag3+ Lag4+ Lag5+ Volume, family = binomial)
+```
+
+
+```{r}
+hist(rnorm(n=1000, mean=1, sd=2))
+```
+```{r}
+predict(glm.fits, type = "response")[1:10]
+```
+
+```{r}
+glm_pred <- predict(glm.fits, type = "response")
+```
+
+```{r}
+head(glm_pred)
+```
+
+```{r}
+hist(glm_pred)
+```
+```{r}
+glm_prob <- predict(glm.fits, type = "response")
+```
+
+```{r}
+rm(glm_pred)
+```
+
+```{r}
+sum(glm_prob > 0.5)
+```
+```{r}
+sum(glm_prob < 0.5)
+```
+```{r}
+964+286
+```
+
+```{r}
+glm_pred <- predict(glm.fits, type = "response")
+hist(glm_pred)
+abline(v=0.5, col="red", lwd=10)
+```
+
+```{r}
+glm_pred<- rep("Down", 1250)
+```
+
+```{r}
+glm_pred[glm_prob> 0.5]  <- "up"
+```
+
+```{r}
+table(glm_pred)
+```
+
+```{r}
+Smarket$Direction[1:5]
+```
+
+```{r}
+glm_pred[1:5]
+```
+```{r}
+table(Smarket$Direction, glm_pred)
 ```
 
